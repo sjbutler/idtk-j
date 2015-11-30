@@ -22,11 +22,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * A very simple name splitter. Only splits on underscores and 
+ * A very simple, conservative name splitter. Only splits on underscores and 
  * lower case to upper case boundaries.
- *
- *
- * @author Simon Butler (simon@facetus.org.uk)
  */
 public class SimpleNameTokeniser {
 
@@ -40,6 +37,11 @@ public class SimpleNameTokeniser {
         javaSeparators.add( "$".codePointAt( 0 ) );
     }
 
+    /**
+     * Tokenises the given name.
+     * @param name a name
+     * @return a list of tokens found in the name
+     */
     public static List<String> split( String name ) {
         List<String> firstPassTokens = tokeniseOnSeparators( name );
 
@@ -52,14 +54,14 @@ public class SimpleNameTokeniser {
         return javaSeparators.contains( codePoint );
     }
 
-    private static ArrayList<String> tokeniseOnSeparators( String name ) {
+    private static List<String> tokeniseOnSeparators( String name ) {
         ArrayList<String> splits = new ArrayList<>();
 
         ArrayList<Integer> candidateBoundaries = new ArrayList<>();
 
         Integer currentChar;
 
-        // now process the array looking for boundaries
+        // now search for boundaries
         for ( Integer index = 0; index < name.length(); index++ ) {
             currentChar = name.codePointAt( index );
 
@@ -69,9 +71,8 @@ public class SimpleNameTokeniser {
                 //  (b) may have a boundary both before and after
                 // so, boundary before
                 if ( index > 0 && !isSeparator( name.codePointAt( index - 1 ) ) ) {
-                    // (U|L|D)+S boundary
                     candidateBoundaries.add( index - 1 );
-                    // NB: this also records the final char of an identifer
+                    // NB: this also records the final char of a name
                     // with trailing underscores
                 }
 
@@ -116,16 +117,13 @@ public class SimpleNameTokeniser {
      * @return an Array list of components of the input string that result from
      * splitting on LCUC boundaries.
      */
-    private static ArrayList<String> tokeniseOnLowercaseToUppercase( String name ) {
-        ArrayList<String> splits = new ArrayList<>();
+    private static List<String> tokeniseOnLowercaseToUppercase( String name ) {
+        List<String> splits = new ArrayList<>();
         // the following stores data in pairs (start, finish, start, ...)
         ArrayList<Integer> candidateBoundaries = new ArrayList<>();
 
-        Integer currentChar;
-
         // now process the array looking for boundaries
         for ( Integer index = 0; index < name.length(); index++ ) {
-            currentChar = name.codePointAt( index );
 
             if ( index == 0 ) {
                 // the first character is always a boundary
@@ -159,8 +157,8 @@ public class SimpleNameTokeniser {
         return splits;
     }
 
-    private static ArrayList<String> tokeniseOnLowercaseToUppercase( List<String> tokens ) {
-        ArrayList<String> splits = new ArrayList<>();
+    private static List<String> tokeniseOnLowercaseToUppercase( List<String> tokens ) {
+        List<String> splits = new ArrayList<>();
 
         tokens.stream().forEach( (token) -> {
             splits.addAll( tokeniseOnLowercaseToUppercase( token ) );
@@ -169,4 +167,6 @@ public class SimpleNameTokeniser {
         return splits;
     }
 
+    // hide the constructor as this class only provides static services
+    private SimpleNameTokeniser() {}
 }
