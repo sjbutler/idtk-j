@@ -21,7 +21,7 @@ public class TypeNameTest {
                         + tn.identifierName() 
                         + "\"", 
                 "SomeThing".equals( tn.identifierName() ) );
-        assertTrue( "unexpected value for fqn", tn.fqn() == null);
+        assertTrue( "unexpected value for fqn", tn.fqn().isEmpty());
         assertTrue( 
                 "unexpected value for package name \"" 
                         + tn.packageName() 
@@ -80,7 +80,7 @@ public class TypeNameTest {
                         + tn.identifierName() 
                         + "\"", 
                 "SomeThing".equals( tn.identifierName() ) );
-        assertTrue( "unexpected value for fqn", tn.fqn() == null );
+        assertTrue( "unexpected value for fqn", tn.fqn().isEmpty() );
         assertTrue( 
                 "unexpected value for package name \"" 
                         + tn.packageName() 
