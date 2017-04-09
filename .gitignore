@@ -1,4 +1,8 @@
 /build/
 /.nb-gradle/
 /.gradle/
+/gradle
+/gradle.bat
+/gradlew.bat
+/gradlew
 
