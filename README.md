@@ -17,6 +17,9 @@ text is available at https://www.apache.org/licenses/LICENSE-2.0
 idtk-j requires Java v8 to run. It is straightforward to revise
 idtk-j to run using Java 7 if necessary.
 
+## Build
+A build script is available for Gradle which will download dependencies.
+
 ## Dependencies
 
 idtk-j uses SLF4J for logging. Incorporating SLF4J in (existing) code

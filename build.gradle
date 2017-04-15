@@ -4,17 +4,24 @@
 
 // Apply the java-library plugin to add support for Java Library
 apply plugin: 'java-library'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
 
 repositories {
     // Use jcenter to resolve dependencies.
     jcenter()
 }
 
+// metadata for the pom
+group = "uk.org.facetus"
+archivesBaseName = "idtk-j"
+version = "0.5.0"
+
 sourceCompatibility = 1.8
 
 dependencies {
     // external dependencies
-    api 'org.apache.opennlp:opennlp-tools:1.7.2'
     api 'org.slf4j:slf4j-api:1.7.24'
     api 'org.slf4j:slf4j-jdk14:1.7.24'
 
@@ -22,3 +29,20 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 }
 
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+signing {
+    sign configurations.archives
+}
