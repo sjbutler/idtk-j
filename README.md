@@ -19,10 +19,9 @@ idtk-j to run using Java 7 if necessary.
 
 ## Dependencies
 
-idtk-j uses SLF4J for logging. Incorporating SLF4J in (existing) code 
-is straightforward. A copy of slf4j-api.x.x.x.jar must be on the 
-classpath when compiling and running nominal. Another slf4j jar 
-will also be required to support logging through your chosen logging 
-system -- see http://slf4j.org/ for more information. idtk-j was 
-coded against slf4j v1.7.7, so v1.7.7 or greater should work.
-
+idtk-j uses SLF4J for logging. Incorporating SLF4J in (existing) code
+is straightforward. A copy of slf4j-api.x.x.x.jar must be on the
+classpath when compiling and running nominal. Another slf4j jar
+will also be required to support logging through your chosen logging
+system -- see http://slf4j.org/ for more information. idtk-j was
+coded against slf4j v1.7.24, so v1.7.24 or greater should work.
