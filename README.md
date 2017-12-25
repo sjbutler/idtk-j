@@ -15,10 +15,14 @@ text is available at https://www.apache.org/licenses/LICENSE-2.0
 ## Requirements
 
 idtk-j requires Java v8 to run. It is straightforward to revise
-idtk-j to run using Java 7 if necessary.
+idtk-j to run using Java 7 if necessary, but becoming more difficult.
 
 ## Build
-A build script is available for Gradle which will download dependencies.
+A build script is available for Gradle which will download dependencies, 
+and a pom is provided, but not tested with maven.
+
+The current version is 0.5.1 and can be accessed by adding  
+`compile 'uk.org.facetus:idtk-j:0.5.1'` to `build.gradle`.
 
 ## Dependencies
 
