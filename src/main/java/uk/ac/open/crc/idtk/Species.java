@@ -1,5 +1,6 @@
 /*
     Copyright (C) 2010-2015 The Open University
+    Copyright (C) 2017-2018 Simon Butler
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -25,7 +26,7 @@ public enum Species {
     ANNOTATION_MEMBER( "annotation member" ),
     /** An annotation. Has the description "annotation". */
     ANNOTATION( "annotation" ),
-    /** A class. Hass the description "class". */
+    /** A class. Has the description "class". */
     CLASS( "class" ),
     /** A constructor. Has the description "constructor". */
     CONSTRUCTOR( "constructor" ),
@@ -43,6 +44,8 @@ public enum Species {
     INTERFACE( "interface" ),
     /** A label. Has the description "label name". */
     LABEL( "label name" ),
+    /** A lambda parameter. Has the description "lambda parameter". */
+    LAMBDA_PARAMETER( "lambda parameter" ),
     /** A local variable. Has the description "local". */
     LOCAL_VARIABLE( "local" ),
     /** A local class. Has the description "local class". */
@@ -136,7 +139,9 @@ public enum Species {
      * @return true if the species is a formal argument or local variable
      */
     public boolean isNonFieldReference() {
-        return (this == LOCAL_VARIABLE || this == FORMAL_ARGUMENT);
+        return (this == LOCAL_VARIABLE 
+		|| this == FORMAL_ARGUMENT 
+		|| this == LAMBDA_PARAMETER);
     }
 
     /**
