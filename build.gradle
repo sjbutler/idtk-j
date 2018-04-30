@@ -2,21 +2,20 @@
  * Simple Gradle configuration
  */
 
-// Apply the java-library plugin to add support for Java Library
 apply plugin: 'java-library'
 apply plugin: 'maven'
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
 repositories {
-    // Use jcenter to resolve dependencies.
+    mavenCentral()
     jcenter()
 }
 
 // metadata for the pom
 group = "uk.org.facetus"
 archivesBaseName = "idtk-j"
-version = "0.5.1"
+version = "0.5.2"
 
 sourceCompatibility = 1.8
 
