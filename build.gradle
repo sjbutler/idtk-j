@@ -15,7 +15,7 @@ repositories {
 // metadata for the pom
 group = "uk.org.facetus"
 archivesBaseName = "idtk-j"
-version = "0.5.2"
+version = "0.5.3"
 
 sourceCompatibility = 1.8
 
@@ -43,6 +43,6 @@ artifacts {
     archives javadocJar, sourcesJar
 }
 
-signing {
-    sign configurations.archives
-}
+//signing {
+//    sign configurations.archives
+//}
