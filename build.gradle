@@ -15,7 +15,7 @@ repositories {
 // metadata for the pom
 group = "uk.org.facetus"
 archivesBaseName = "idtk-j"
-version = "0.5.3"
+version = "0.5.4"
 
 sourceCompatibility = 1.8
 
