@@ -21,8 +21,8 @@ idtk-j to run using Java 7 if necessary, but becoming more difficult.
 A build script is available for Gradle which will download dependencies, 
 and a pom is provided, but not tested with maven.
 
-The current version is 0.5.3 and can be accessed by adding  
-`compile 'uk.org.facetus:idtk-j:0.5.3'` to `build.gradle`.
+The current version is 0.5.4 and can be accessed by adding  
+`compile 'uk.org.facetus:idtk-j:0.5.4'` to `build.gradle`.
 
 ## Dependencies
 
