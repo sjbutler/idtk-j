@@ -15,14 +15,13 @@ repositories {
 // metadata for the pom
 group = "uk.org.facetus"
 archivesBaseName = "idtk-j"
-version = "0.5.4"
+version = "0.5.5"
 
 sourceCompatibility = 1.8
 
 dependencies {
     // external dependencies
     api 'org.slf4j:slf4j-api:1.7.25'
-    api 'org.slf4j:slf4j-jdk14:1.7.25'
 
     // JUnit
     testImplementation 'junit:junit:4.12'
