@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>uk.org.facetus</groupId>
   <artifactId>idtk-j</artifactId>
-  <version>0.5.5</version>
+  <version>0.5.6-SNAPSHOT</version>
   <name>idtk-j</name>
   <description>A library of utility classes for working with Java identifier names</description>
   <url>https://github.com/sjbutler/idtk-j</url>
@@ -27,6 +27,39 @@
     <developerConnection>scm:git:ssh://github.com:sjbutler/idtk-j.git</developerConnection>
     <url>https://github.com/sjbutler/idtk-j.git/master</url>
    </scm>
+   <build>
+	<plugins>
+	    <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-source-plugin</artifactId>
+		<version>3.0.1</version>
+		<executions>
+		    <execution>
+			<id>attach-sources</id>
+			<goals>
+			    <goal>jar-no-fork</goal>
+			</goals>
+		    </execution>
+		</executions>
+	    </plugin>
+	    <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-javadoc-plugin</artifactId>
+		<version>3.0.1</version>
+		<configuration>
+		    <additionalOptions>-html5</additionalOptions>
+		</configuration>
+		<executions>
+		    <execution>
+			<id>attach-javadocs</id>
+			<goals>
+			    <goal>jar</goal>
+			</goals>
+		    </execution>
+		</executions>
+	    </plugin>
+	</plugins>
+    </build>
   <dependencies>
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -46,4 +79,9 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
 </project>
