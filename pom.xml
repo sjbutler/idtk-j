@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>uk.org.facetus</groupId>
   <artifactId>idtk-j</artifactId>
-  <version>0.5.6-SNAPSHOT</version>
+  <version>0.5.6</version>
   <name>idtk-j</name>
   <description>A library of utility classes for working with Java identifier names</description>
   <url>https://github.com/sjbutler/idtk-j</url>

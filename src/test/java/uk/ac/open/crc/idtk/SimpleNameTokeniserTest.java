@@ -34,14 +34,14 @@ public class SimpleNameTokeniserTest {
        assertTrue("unrecognised string returned", "something".equals( tokens.get( 0 ) ));
     }
     
-    
+
     @Test
     public void twoTokenTest() {
        List<String> tokens = SimpleNameTokeniser.split( "someThing" );
        
        assertTrue("expected two tokens", tokens.size() == 2 );
-       assertTrue("unrecognised string returned", "some".equals( tokens.get( 0 ) ));
-       assertTrue("unrecognised string returned", "Thing".equals( tokens.get( 1 ) ));
+       assertTrue(String.format("unrecognised string returned: \"%s\"", tokens.get(0)), "some".equals( tokens.get( 0 ) ));
+       assertTrue(String.format("unrecognised string returned: \"%s\"", tokens.get(1)), "Thing".equals( tokens.get( 1 ) ));
     }
     
     @Test
@@ -82,4 +82,33 @@ public class SimpleNameTokeniserTest {
        assertTrue("unrecognised string returned", "else".equals( tokens.get( 2 ) ));
     }
     
+   @Test
+   public void contiguousUnderscoreTest() {
+       List<String> tokens = SimpleNameTokeniser.split( "some__thing____else" );
+       
+       assertTrue("expected three tokens", tokens.size() == 3 );
+       assertTrue("unrecognised string returned", "some".equals( tokens.get( 0 ) ));
+       assertTrue("unrecognised string returned", "thing".equals( tokens.get( 1 ) ));
+       assertTrue("unrecognised string returned", "else".equals( tokens.get( 2 ) ));
+    }
+    
+    @Test
+    public void contiguousUnderscoreWithDollarTest() {
+       List<String> tokens = SimpleNameTokeniser.split( "$$some_$_thing___$_else" );
+       
+       assertTrue("expected three tokens", tokens.size() == 3 );
+       assertTrue("unrecognised string returned", "some".equals( tokens.get( 0 ) ));
+       assertTrue("unrecognised string returned", "thing".equals( tokens.get( 1 ) ));
+       assertTrue("unrecognised string returned", "else".equals( tokens.get( 2 ) ));
+    }
+
+    @Test
+    public void contiguousUnderscoreWithDollar2Test() {
+       List<String> tokens = SimpleNameTokeniser.split( "$$some_$_thing___$_else___$$" );
+       
+       assertTrue("expected three tokens", tokens.size() == 3 );
+       assertTrue("unrecognised string returned", "some".equals( tokens.get( 0 ) ));
+       assertTrue("unrecognised string returned", "thing".equals( tokens.get( 1 ) ));
+       assertTrue("unrecognised string returned", "else".equals( tokens.get( 2 ) ));
+    }
 }

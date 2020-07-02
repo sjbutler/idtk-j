@@ -56,7 +56,7 @@ public class SubTool {
      * @return {@code true} if any token begins with 'sub' regardless of case
      */
     public static boolean hasSubPrefix(List<String> tokens) {
-	return tokens.stream().anyMatch( token -> token.toLowerCase().startsWith( "sub" ));        
+	return tokens.stream().anyMatch( SubTool::hasSubPrefix );        
     }
     
     /**
@@ -66,7 +66,7 @@ public class SubTool {
      * @return {@code true} if any token is 'sub' regardless of case
      */
     public static boolean containsSub(List<String> tokens) {
-	return tokens.stream().anyMatch( token -> isSub( token));        
+	return tokens.stream().anyMatch( SubTool::isSub );        
     }
     
     /**
